@@ -1,6 +1,8 @@
 
 /*Variables*/
-@use './base/variables';
+@import './base/variables';
 
 /*Base*/
-@use './base/base';
+@import './base/base';
+
+/*Componentes*/
