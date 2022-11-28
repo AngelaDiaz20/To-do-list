@@ -1,23 +1,40 @@
 import { useState } from 'react';
-import TodoAdd from './components/TodoAdd/TodoAdd';
-import TodoList from './components/TodoList/TodoList';
+import {TodoAdd} from './components/TodoAdd/TodoAdd';
+import {TodoList} from './components/TodoList/TodoList';
+import { useTodo } from './hooks/useTodo';
 
 function App() {
+
+  const {
+    todos,
+    todosCount,
+    pendingTodosCount,
+    handleNewTodo,
+    handleDeleteTodo,
+    handleCompleteTodo,
+    handleUpdateTodo
+  } = useTodo();
+
   return (
     <>
       <div>
           <h1>Lista de tareas</h1>
           <div className='counter'>
-            <h3>N° Tareas: 4</h3>
-            <h3>Pendientes: 3</h3>
+            <h3>N° Tareas: {todosCount} </h3>
+            <h3>Pendientes: {pendingTodosCount} </h3>
           </div>
 
           <div>
             <h3>Agregar Tarea</h3>
-            <TodoAdd/>
+            <TodoAdd handleNewTodo={handleNewTodo}/>
           </div>
 
-          <TodoList/>
+          <TodoList
+            todos={todos}
+            handleUpdateTodo = {handleUpdateTodo}
+            handleDeleteTodo = {handleDeleteTodo}
+            handleCompleteTodo = {handleCompleteTodo}
+          />
       </div>
     </>
   );
