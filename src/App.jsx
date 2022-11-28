@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {TodoAdd} from './components/TodoAdd/TodoAdd';
 import {TodoList} from './components/TodoList/TodoList';
 import { useTodo } from './hooks/useTodo';
